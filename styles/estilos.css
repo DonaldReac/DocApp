@@ -1,3 +1,22 @@
 h1{
     color: red;
 }
+
+.bg{
+    background-image: url(../imagenes/doctor.jpg);
+    background-position: center center;
+}
+
+.bg2{
+    background-image: url(../imagenes/doctor2.jpg);
+    background-position: center center;
+}
+
+.body{
+    background: #E5BD77;
+    background: linear-gradient(to right,#248bd6, #83b8ff);
+}
+
+.fondo{
+    background: #f6f6f6;
+}
