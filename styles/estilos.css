@@ -2,6 +2,10 @@ h1{
     color: red;
 }
 
+.imgshadow{
+    filter: drop-shadow(200px 100px 100px #575757)
+} 
+
 .bg{
     background-image: url(../imagenes/doctor.jpg);
     background-position: center center;
@@ -19,4 +23,8 @@ h1{
 
 .fondo{
     background: #f6f6f6;
+}
+
+.campos{
+    display: none;
 }

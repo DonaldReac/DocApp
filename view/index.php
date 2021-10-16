@@ -17,21 +17,24 @@
         </div>
         <div class="col p-5 rounded-end">
           <div class="text-end">
-            <img src="../imagenes/LOGO-SALUD-MORADO.png" width="50" alt="aqui va el logo">
+            <img src="../imagenes/LOGO-SALUD-MORADO.png " class="imgshadow" width="50" alt="aqui va el logo">
           </div>
           <h2 class="fw-bold text-center py-5">Bienvenido(a) Inicia Sesión</h2>
           <!-- login -->
           <form action="../controller/DoctorController.php" method="POST">
             <div class="mb-4">
               <label for="email" class="form-label">Correo Electronico</label>
-              <input type="email" class="form-control" name="email">
+              <input type="email" class="form-control" name="email" id="email">
             </div>
             <div class="mb-4">
               <label for="password" class="form-label">Contraseña</label>
-              <input type="password" class="form-control" name="password">
+              <input type="password" class="form-control" name="password" id="password">
+            </div>
+            <div class="alert alert-danger " id="campos" role="alert" style="display:none">
+              Error , Los Campos No Pueden Ir Vacíos!
             </div>
             <div class="d-grid">
-              <button type="submit" class="btn btn-primary" >Iniciar sesión</button>
+              <button type="submit" id="inicio" class="btn btn-primary" >Iniciar sesión</button>
             </div>
             <div class="my-3">
               <span>¿No tienes una cuenta?<a href="Registro.php">Regístrate</a></span>
@@ -44,4 +47,6 @@
 </body>
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="../js/login.js"></script>
 </html>
