@@ -34,9 +34,9 @@
               Error , Los Campos No Pueden Ir Vacíos 
             </div>
             <?php if(isset($_GET['error'])) echo 
-            '<div class="alert alert-danger " id="campos" role="alert">
-              El usuario no existe cree una cuenta o ingrese nuevamente sus datos
-            </div>' ?>
+            "<div class='alert alert-danger' id='campos' role='alert'>
+              {$_GET['error']}
+            </div>" ?>
             <div class="d-grid">
               <button type="submit" id="inicio" class="btn btn-primary" >Iniciar sesión</button>
             </div>

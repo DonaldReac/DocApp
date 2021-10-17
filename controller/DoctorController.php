@@ -42,7 +42,7 @@ if( isset($_POST['passwordconfirm']))
             $id_usuario = $rows['idDoctor'];
             header("Location:../view/doctor.php?id='{$id_usuario}'");
         }else{
-            header("Location:../view/index.php?error='los datos no son correctos'");
+            header("Location:../view/index.php?error=La cuenta no existe, vuelva a intentarlo");
         }
         
         
