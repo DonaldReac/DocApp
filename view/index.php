@@ -9,13 +9,13 @@
     <link rel="StyleSheet" href="../styles/estilos.css" TYPE="text/css"">
     <title>DocApp</title>
 </head>
-<body class="body">
+<body class="body ">
     <div class="container w-75 fondo mt-5 rounded shadow">
-      <div class="row align-items-stretch">
+      <div class="row align-items-stretch mb-3">
         <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded">
         <!-- aqui va la imagen ---->
         </div>
-        <div class="col p-5 rounded-end">
+        <div class="col p-5  rounded-end">
           <div class="text-end">
             <img src="../imagenes/LOGO-SALUD-MORADO.png " class="imgshadow" width="50" alt="aqui va el logo">
           </div>
@@ -31,8 +31,12 @@
               <input type="password" class="form-control" name="password" id="password">
             </div>
             <div class="alert alert-danger " id="campos" role="alert" style="display:none">
-              Error , Los Campos No Pueden Ir Vacíos!
+              Error , Los Campos No Pueden Ir Vacíos 
             </div>
+            <?php if(isset($_GET['error'])) echo 
+            '<div class="alert alert-danger " id="campos" role="alert">
+              El usuario no existe cree una cuenta o ingrese nuevamente sus datos
+            </div>' ?>
             <div class="d-grid">
               <button type="submit" id="inicio" class="btn btn-primary" >Iniciar sesión</button>
             </div>
