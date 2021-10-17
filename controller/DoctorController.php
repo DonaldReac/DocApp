@@ -1,4 +1,6 @@
 <?php
+require '../model/DoctorModel.php';
+
 
 if( isset($_POST['passwordconfirm']))
 {
@@ -14,16 +16,13 @@ if( isset($_POST['passwordconfirm']))
         require '../model/db.php';
         $correo = $_POST['email'];
         $password = $_POST['password'];
-        
-        $consulta = "INSERT INTO Doctor (correo,contraseña) values ('{$correo}','{$password}')";
-        $consulta = mysqli_query($db,$consulta);
+        insertar($db,$correo,$password);
 
-        $consultaid ="SELECT * FROM doctor where correo = '{$correo}' and contraseña = '{$password}'";
-        $consultaid= mysqli_query($db,$consultaid);
-    
-        $rows = $consultaid->fetch_array();
-        $id_usuario = $rows['idDoctor'];
-         
+        $consulta ="SELECT * FROM doctor where correo = '{$correo}' and contraseña = '{$password}'";        
+        $info=getquery($db,$consulta);
+
+        $rows = $info->fetch_array();
+        $id_usuario = $rows['idDoctor']; 
 
         header("Location:../view/doctor.php?id='{$id_usuario}'");
     }
@@ -34,9 +33,9 @@ if( isset($_POST['passwordconfirm']))
         $password = $_POST['password'];
 
         $consultaid ="SELECT * FROM doctor where correo = '{$correo}' and contraseña = '{$password}'";
-        $consultaid= mysqli_query($db,$consultaid);
+        $info = getquery($db,$consultaid);
        
-        $rows = $consultaid->fetch_assoc();
+        $rows = $info->fetch_assoc();
         if($correo == $rows['correo'] && $password == $rows['contraseña'])
         {
             $id_usuario = $rows['idDoctor'];
