@@ -2,7 +2,6 @@
 
 $usuario_actual =$_GET['id'];
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +19,7 @@ $usuario_actual =$_GET['id'];
         <button id="agregar" class="btn btn-success">Agregar Paciente</button>
     </div>
     <div class="col p-5 rounded-end card shadow " style="display: none;" id="form">
-        <form action="../controller/DoctorController.php?control=3" method="POST">
+        <form action="../controller/DoctorController.php?control=3&idDoctor=<?php echo $usuario_actual ?>" method="POST">
             <div class="mb-3">
                 <div id="emailHelp" class="form-text">Escriba la Información del Paciente</div>
                 <label for="exampleInputEmail1" class="form-label">Nombre</label>
