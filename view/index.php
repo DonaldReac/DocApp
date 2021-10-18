@@ -21,7 +21,7 @@
           </div>
           <h2 class="fw-bold text-center py-5">Bienvenido(a) Inicia Sesión</h2>
           <!-- login -->
-          <form action="../controller/DoctorController.php" method="POST">
+          <form action="../controller/DoctorController.php?control=2" method="POST">
             <div class="mb-4">
               <label for="email" class="form-label">Correo Electronico</label>
               <input type="email" class="form-control" name="email" id="email">

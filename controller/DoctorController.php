@@ -1,16 +1,20 @@
 <?php
 require '../model/DoctorModel.php';
 
-
-if( isset($_POST['passwordconfirm']))
-{
-    registro();
-    //ejecutar sentencia para registrar un usuario
-}else{
-    //ejecutar sentencia para registrar un usuario
-    inicio();
-       
+switch($_GET['control']){
+    case '1':
+        registro();
+        break;
+    case '2':
+        inicio();
+        break;
+    case '3':
+        registroPaciente();
+        break;
+    default:
+        break;
 }
+
 
     function registro(){
         require '../model/db.php';
@@ -43,7 +47,12 @@ if( isset($_POST['passwordconfirm']))
         }else{
             header("Location:../view/index.php?error=La cuenta no existe, vuelva a intentarlo");
         }
-        
+    }
+
+    function registroPaciente()
+    {
+        require './Decorator.php';
+        registrar($_POST['nombre'],$_POST['apellidos'],$_POST['edad'],$_POST['fecha'],$_POST['comentarios']);
         
     }
 

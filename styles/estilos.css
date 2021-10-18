@@ -29,6 +29,10 @@ h1{
     background: linear-gradient(to right,#248bd6, #83b8ff);
 }
 
+.body2{
+    background: linear-gradient(to right,#d4d4ce, #f6f6f6);
+}
+
 .fondo{
     background: #f6f6f6;
 }

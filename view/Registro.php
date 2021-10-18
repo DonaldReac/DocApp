@@ -21,7 +21,7 @@
           </div>
           <h2 class="fw-bold text-center py-3">Crea Tu Cuenta</h2>
           <!-- login -->
-          <form action="../controller/DoctorController.php" method="POST">
+          <form action="../controller/DoctorController.php?control=1" method="POST">
             <div class="mb-3">
               <label for="email" class="form-label">Correo Electronico</label>
               <input type="email" class="form-control" name="email" id="email">
