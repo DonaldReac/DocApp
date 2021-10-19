@@ -1,7 +1,5 @@
 <?php
-
 $usuario_actual =$_GET['id'];
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,9 +15,10 @@ $usuario_actual =$_GET['id'];
 <body class="container body2">
     <div class="m-3 col">
         <button id="agregar" class="btn btn-success">Agregar Paciente</button>
+        
     </div>
     <div class="col p-5 rounded-end card shadow " style="display: none;" id="form">
-        <form action="../controller/DoctorController.php?control=3&idDoctor=<?php echo $usuario_actual ?>" method="POST">
+        <form action="../controller/DoctorController.php?control=3&idDoctor=<?php echo $usuario_actual?>" method="POST">
             <div class="mb-3">
                 <div id="emailHelp" class="form-text">Escriba la Información del Paciente</div>
                 <label for="exampleInputEmail1" class="form-label">Nombre</label>
@@ -38,11 +37,14 @@ $usuario_actual =$_GET['id'];
                 <input type="datetime-local" class="form-control" id="fecha" name="fecha">
             </div>
             <div class="form-floating mb-3">
-                <textarea class="form-control" name="comentarios" id="floatingTextarea"></textarea>
-                <label for="floatingTextarea">Comentarios</label>
+                <textarea class="form-control" name="comentarios" id="comentarios"></textarea>
+                <label for="comentarios">Comentarios</label>
+            </div>
+            <div class="alert alert-danger " id="campos" role="alert" style="display:none">
+              Error , Los Campos No Pueden Ir Vacíos 
             </div>
             
-            <button type="submit" class="btn btn-primary">Agregar</button>
+            <button type="submit" class="btn btn-primary" id="agregarpaciente">Agregar</button>
         </form>
     </div>
     <!-- aqui bajo va la tabla o info de los pacientes -->

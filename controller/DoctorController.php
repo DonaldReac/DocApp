@@ -54,7 +54,7 @@ switch($_GET['control']){
         require './Decorator.php';
         require '../model/db.php';
         registrar($_POST['nombre'],$_POST['apellidos'],$_POST['edad'],$_POST['fecha'],$_POST['comentarios'],$_GET['idDoctor'],$db);
-        header("Location:../view/doctor.php?id='{$_GET['idDoctor']}'");
+        header("Location:../view/doctor.php?id={$_GET['idDoctor']}");
         
     }
 
