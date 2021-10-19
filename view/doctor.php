@@ -18,7 +18,7 @@ include '../model/db.php';
     <div class="m-3 col">
         <button id="agregar" class="btn btn-success">Agregar Paciente</button>
     </div>
-    <div class="col p-5 rounded-end card shadow " style="display: none;" id="form">
+    <div class="col p-5 rounded-end card shadow mb-5" style="display: none;" id="form">
         <form action="../controller/DoctorController.php?control=3" method="POST">
             <div class="mb-3">
                 <div id="emailHelp" class="form-text">Escriba la Información del Paciente</div>
@@ -51,8 +51,8 @@ include '../model/db.php';
                         <th>Nombre</th>
                         <th>Apellido</th>
                         <th>Edad</th>
+                        <th>comentarios</th>
                         <th>Fecha de cita</th>
-                        <th>Comentarios</th>
                     </thead>
                     <tbody>
                         <?php 
@@ -66,7 +66,7 @@ include '../model/db.php';
                             <td><?php echo $ver[2] ?></td>
                             <td><?php echo $ver[3] ?></td>
                             <td><?php echo $ver[4] ?></td>
-                            <td><?php echo $ver[5] ?></td>
+                            <td><?php echo $ver[6] ?></td>
 
                         </tr>
                         <?php }?>
