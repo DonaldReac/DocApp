@@ -3,7 +3,7 @@
         require '../model/PacienteModel.php';
         require '../model/db.php';
 
-        $consulta = ''
+        $consulta = '';
 
     }
 

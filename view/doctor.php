@@ -1,8 +1,7 @@
 <?php
 
 $usuario_actual =$_GET['id'];
-
-
+include '../model/db.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,7 +46,34 @@ $usuario_actual =$_GET['id'];
         </form>
     </div>
     <!-- aqui bajo va la tabla o info de los pacientes -->
-    
+                <table id=tablaPacientes class="table table-success table-striped">
+                    <thead class="text-center">
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Edad</th>
+                        <th>Fecha de cita</th>
+                        <th>Comentarios</th>
+                    </thead>
+                    <tbody>
+                        <?php 
+                        $query="SELECT * FROM paciente WHERE idDoctor=$usuario_actual";
+                        $resultado=mysqli_query($db,$query);
+                        while($ver=mysqli_fetch_row($resultado)){
+
+                            ?>
+                        <tr>
+                            <td><?php echo $ver[1] ?></td>
+                            <td><?php echo $ver[2] ?></td>
+                            <td><?php echo $ver[3] ?></td>
+                            <td><?php echo $ver[4] ?></td>
+                            <td><?php echo $ver[5] ?></td>
+
+                        </tr>
+                        <?php }?>
+                    </tbody>
+
+                </table>
+    <br>
 </body>
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
