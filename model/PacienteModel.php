@@ -1,11 +1,8 @@
 <?
 
-    function insertarPaciente()
+    function insertarPaciente($nombre,$apellido,$edad,$fecha,$comentarios,$idDoctor)
     {
-        require '../model/db.php';
-        
-        $consulta = "INSERT INTO paciente (correo,contraseña) values ('{$correo}','{$password}')";
-        $consulta = mysqli_query($db,$consulta);
+       
     }
 
 
