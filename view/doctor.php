@@ -13,12 +13,15 @@ require '../model/db.php'
     <link rel="StyleSheet" href="../styles/estilos.css" TYPE="text/css"">
     <title>DocApp</title>
 </head>
-<body class="container body2">
-    <div class="m-3 col">
-        <button id="agregar" class="btn btn-success">Agregar Paciente</button>
-        
-    </div>
-    <div class="col p-5 rounded-end card shadow mb-5" style="display: none;" id="form">
+<body class=" body2">
+    <nav class="navbar navbar-light bg-secondary bg-opacity-50 mb-3">
+        <div class="m-3 col d-flex justify-content-between">
+            <button id="agregar" class="btn btn-success">Agregar Paciente</button>
+            <a class=" btn btn-danger" href="./index.php">Cerrar sesión</a>
+        </div>
+    </nav>
+    
+    <div class="col p-5 rounded-end card shadow mb-5 container" style="display: none;" id="form">
         <form action="../controller/DoctorController.php?control=3&idDoctor=<?php echo $usuario_actual?>" method="POST">
             <div class="mb-3">
                 <div id="emailHelp" class="form-text">Escriba la Información del Paciente</div>
@@ -49,7 +52,7 @@ require '../model/db.php'
         </form>
     </div>
     <!-- aqui bajo va la tabla o info de los pacientes -->
-    <table id=tablaPacientes class="table table-success table-striped">
+    <table id=tablaPacientes class="table table-success table-striped container">
                     <thead class="text-center ">
                         <th>Nombre</th>
                         <th>Apellido</th>
