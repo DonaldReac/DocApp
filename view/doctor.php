@@ -14,9 +14,12 @@ require '../model/db.php'
     <title>DocApp</title>
 </head>
 <body class=" body2">
-    <nav class="navbar navbar-light bg-secondary bg-opacity-50 mb-3">
-        <div class="m-3 col d-flex justify-content-between">
-            <button id="agregar" class="btn btn-success">Agregar Paciente</button>
+    <nav class="navbar navbar-light bg-light mb-5  bg-opacity-75 shadow">
+        <div class="m-3 col d-flex justify-content-around">
+            <button id="agregar" class=" btn btn-success">Agregar Paciente</button>
+            <form>
+                <input name="buscar" id="buscar" class="form-control text-center" type="search" placeholder="Buscar usuario" aria-label="Search">
+            </form>
             <a class=" btn btn-danger" href="./index.php">Cerrar sesión</a>
         </div>
     </nav>
@@ -52,7 +55,7 @@ require '../model/db.php'
         </form>
     </div>
     <!-- aqui bajo va la tabla o info de los pacientes -->
-    <table id=tablaPacientes class="table table-success table-striped container">
+    <table id=tablaPacientes class="table table-light shadow  container">
                     <thead class="text-center ">
                         <th>Nombre</th>
                         <th>Apellido</th>
