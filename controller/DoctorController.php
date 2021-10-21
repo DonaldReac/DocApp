@@ -26,9 +26,9 @@ switch($_GET['control']){
         $info=getquery($db,$consulta);
 
         $rows = $info->fetch_array();
-        $id_usuario = $rows['idDoctor']; 
+        $id_usuario =(int) $rows['idDoctor']; 
 
-        header("Location:../view/doctor.php?id='{$id_usuario}'");
+        header("Location:../view/doctor.php?id={$id_usuario}");
     }
 
     function inicio(){
@@ -42,8 +42,8 @@ switch($_GET['control']){
         $rows = $info->fetch_assoc();
         if($correo == $rows['correo'] && $password == $rows['contraseña'])
         {
-            $id_usuario = $rows['idDoctor'];
-            header("Location:../view/doctor.php?id='{$id_usuario}'");
+            $id_usuario = (int) $rows['idDoctor'];
+            header("Location:../view/doctor.php?id={$id_usuario}");
         }else{
             header("Location:../view/index.php?error=La cuenta no existe, vuelva a intentarlo");
         }

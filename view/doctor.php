@@ -1,5 +1,6 @@
 <?php
 $usuario_actual =$_GET['id'];
+
 require '../model/db.php'
 ?>
 <!DOCTYPE html>
@@ -13,11 +14,12 @@ require '../model/db.php'
     <link rel="StyleSheet" href="../styles/estilos.css" TYPE="text/css"">
     <title>DocApp</title>
 </head>
-<body class=" body2">
+<body class="body2">
     <nav class="navbar navbar-light bg-light mb-5  bg-opacity-75 shadow">
         <div class="m-3 col d-flex justify-content-around">
             <button id="agregar" class=" btn btn-success">Agregar Paciente</button>
-            <form>
+            <form action="#">
+                <input type="hidden" id="iddoctor" value='<?php echo $usuario_actual?>'>
                 <input name="buscar" id="buscar" class="form-control text-center" type="search" placeholder="Buscar usuario" aria-label="Search">
             </form>
             <a class=" btn btn-danger" href="./index.php">Cerrar sesión</a>

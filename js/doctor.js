@@ -34,4 +34,27 @@ function validar(e){
     
 }
 
+let buscar = document.querySelector("#buscar");
+buscar.addEventListener("keyup",leer);
+
+function leer(e){
+    let busqueda = e.target.value;
+    let doctor = parseInt(document.querySelector("#iddoctor").value);
+    
+    $.ajax({
+        url: "../controller/Pacientecontroller.php",
+        global: false, type: "POST", 
+        data: { fecha: busqueda ,iddoctor: doctor}, 
+        cache: false,
+        success: function(usuarios) {
+          result = eval(usuarios);
+          for (let index = 0; index < result.length; index++) {
+              console.log(result[index]);
+          }
+        }
+      });
+   
+      
+}
+
 
