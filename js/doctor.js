@@ -79,10 +79,37 @@ function leer(e){
       }else{
         document.getElementById("pacientesFecha").style.display='block';
       }
+}
+
+function actualizarPaciente(e){
+  const usuario = parseInt(e.id);
+
+  $.ajax({
+    url: "../controller/DoctorController.php?control=4",
+    global: false, type: "POST", 
+    data: { idUsuario: usuario}, 
+    cache: false,
+    success: function(usuario) {
+      result = eval(usuario);
+      
+      const idUsuario = result[0];
+      const nombre = result[1];
+      const apellidos = result[2];
+      const edad = result[3];
+      const historial = result[4];
+      const cita = result[6];
+
       
       
-     
-      
+      const inputUsuario = document.querySelector("#actualizarUsuario");
+      const inputNombre = document.querySelector("#nombre");
+      const inputApellidos = document.querySelector("#apellidos");
+      const inputEdad = document.querySelector("#edad");
+      const inputFecha = document.querySelector("#fecha");
+      const inputComentarios = document.querySelector("#comentarios");
+
+      console.log(idUsuario,nombre,apellidos,edad,historial,cita,inputUsuario,inputNombre,inputApellidos,inputEdad,inputFecha,inputComentarios);
+    }});
 }
 
 

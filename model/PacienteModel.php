@@ -8,5 +8,11 @@
        return $consulta;
     }
 
+    function getUsuario($id,$db)
+    {
+    $consulta = "SELECT * FROM PACIENTE WHERE idPaciente={$id}";
+    $consulta =  mysqli_query($db,$consulta);
+    return $consulta;
+    }
 
 ?>

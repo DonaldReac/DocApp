@@ -41,6 +41,7 @@ require '../model/db.php'
     
     <div class="col p-5 rounded-end card shadow mb-5 container" style="display: none;" id="form">
         <form action="../controller/DoctorController.php?control=3&idDoctor=<?php echo $usuario_actual?>" method="POST">
+            <input type="hidden" id="actualizarUsuario">
             <div class="mb-3">
                 <div id="emailHelp" class="form-text">Escriba la Información del Paciente</div>
                 <label for="exampleInputEmail1" class="form-label">Nombre</label>
@@ -67,6 +68,7 @@ require '../model/db.php'
             </div>
             
             <button type="submit" class="btn btn-primary" id="agregarpaciente">Agregar</button>
+            <button type="submit" class="btn btn-success" id="actpaciente" style="display: none;">Actualizar paciente</button>
         </form>
     </div>
     <!-- aqui bajo va la tabla o info de los pacientes -->
@@ -88,7 +90,7 @@ require '../model/db.php'
                     <p class="card-text">Comentarios: <?php echo $ver[4] ?></p>
                     <div class="d-flex justify-content-around">
                         <button type="button" class="btn btn-danger">Eliminar</button>
-                        <button type="button" class="btn btn-secondary">Actualizar</button>
+                        <button type="button" class="btn btn-secondary" onclick="actualizarPaciente(this)" value="<?php echo $ver[0]?>" id="<?php echo $ver[0]?>">Actualizar</button>
                     </div>
             </div>
 
