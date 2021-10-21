@@ -41,3 +41,33 @@ h1{
     display: none;
 }
 
+.card-img{
+    width: 190px;
+    height: 150px;
+}
+  
+.card {
+   box-shadow: 0 4px 8px 0 grey;
+   padding: 16px;
+   text-align: center;
+   background-color: #f1f1f1;
+   width: 25%;
+   height: 100px;
+} 
+
+.card-columns{
+    @include media-breakpoint-only(lg) {
+      column-count: 4;
+    }
+    @include media-breakpoint-only(xl) {
+      column-count: 5;
+    }
+}
+
+.galeria{
+   display: flex;
+   margin-right: 20px;
+   margin-left: 20px;
+   padding-left: 110px;
+   font-style: normal;
+}

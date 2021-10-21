@@ -10,7 +10,7 @@ require '../model/db.php'
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="StyleSheet" href="../styles/estilos.css" TYPE="text/css"">
+    <link rel="StyleSheet" href="../styles/estilos.css" TYPE="text/css">
     <title>DocApp</title>
 </head>
 <body class=" body2">
@@ -55,33 +55,35 @@ require '../model/db.php'
         </form>
     </div>
     <!-- aqui bajo va la tabla o info de los pacientes -->
-    <table id=tablaPacientes class="table table-light shadow  container">
-                    <thead class="text-center ">
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Edad</th>
-                        <th>comentarios</th>
-                        <th>Fecha de cita</th>
-                    </thead>
-                    <tbody class="text-center">
-                        <?php 
-                        $query="SELECT * FROM paciente WHERE idDoctor=$usuario_actual";
-                        $resultado=mysqli_query($db,$query);
-                        while($ver=mysqli_fetch_row($resultado)){
+    <div class="galeria">
+    <?php 
+        $query="SELECT * FROM paciente WHERE idDoctor=$usuario_actual";
+        $resultado=mysqli_query($db,$query);
+        while($ver=mysqli_fetch_row($resultado)){
+    ?>
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <!--aqui va la imagen XD-->
+                <!--<img src="..." class="img-fluid rounded-start" alt="...">-->
+            </div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title"><?php echo $ver[1] ?> <?php echo $ver[2] ?></h5>
+                    <p class="card-text">Edad: <?php echo $ver[3] ?></p>
+                    <!--<p class="card-text"><?php //echo $ver[4] ?></p>Fecha de cita-->
+                    <!--<p class="card-text"><?php //echo $ver[6] ?></p>Comentarios-->
+                    <button type="button" class="btn btn-danger">Eliminar</button>
+                    <button type="button" class="btn btn-info">Detalles</button>
+                    <button type="button" class="btn btn-secondary">Actualizar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php }?>
+    </div>
+    </div>
 
-                            ?>
-                        <tr>
-                            <td><?php echo $ver[1] ?></td>
-                            <td><?php echo $ver[2] ?></td>
-                            <td><?php echo $ver[3] ?></td>
-                            <td><?php echo $ver[4] ?></td>
-                            <td><?php echo $ver[6] ?></td>
-
-                        </tr>
-                        <?php }?>
-                    </tbody>
-
-                </table>
 </body>
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
