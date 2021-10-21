@@ -25,6 +25,23 @@ require '../model/db.php'
             <a class=" btn btn-danger" href="./index.php">Cerrar sesión</a>
         </div>
     </nav>
+
+    <div class="list-group container mb-3 " style="display: none;" id="pacientesFecha">
+        
+            <div class="col-4 mx-auto">
+                <p href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    The current link item
+                </p>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">An item</li>
+                    <li class="list-group-item">A second item</li>
+                    <li class="list-group-item">A third item</li>
+                    <li class="list-group-item">A fourth item</li>
+                    <li class="list-group-item">And a fifth one</li>
+                </ul>
+            </div>
+        
+    </div>
     
     <div class="col p-5 rounded-end card shadow mb-5 container" style="display: none;" id="form">
         <form action="../controller/DoctorController.php?control=3&idDoctor=<?php echo $usuario_actual?>" method="POST">
@@ -65,16 +82,18 @@ require '../model/db.php'
     ?>
     <div class="card mb-3 m-2">
             <div class="col-md-4">
-                <img src="../imagenes/paciente.png" class="img-fluid rounded-start" alt="Paciente">
+               
             </div>
             <div class="card-body">
+                    <input type="hidden" value="<?php echo $ver[0]?>">
                     <h5 class="card-title"><?php echo $ver[1] ?> <?php echo $ver[2] ?></h5>
+                    <p class="card-text">Fecha de cita <?php echo $ver[6] ?></p>
                     <p class="card-text">Edad: <?php echo $ver[3] ?></p>
-                    <!--<p class="card-text"><?php //echo $ver[4] ?></p>Fecha de cita-->
-                    <!--<p class="card-text"><?php //echo $ver[6] ?></p>Comentarios-->
-                    <button type="button" class="btn btn-danger">Eliminar</button>
-                    <button type="button" class="btn btn-info">Detalles</button>
-                    <button type="button" class="btn btn-secondary">Actualizar</button>
+                    <p class="card-text">Comentarios: <?php echo $ver[4] ?></p>
+                    <div class="d-flex justify-content-around">
+                        <button type="button" class="btn btn-danger">Eliminar</button>
+                        <button type="button" class="btn btn-secondary">Actualizar</button>
+                    </div>
             </div>
 
     </div>

@@ -51,9 +51,17 @@ function leer(e){
           for (let index = 0; index < result.length; index++) {
               console.log(result[index]);
           }
+
         }
       });
-   
+      
+      if(document.querySelector("#buscar").value==""){
+        document.getElementById("pacientesFecha").style.display='none';
+      }else{
+        document.getElementById("pacientesFecha").style.display='block';
+      }
+      
+
       
 }
 
