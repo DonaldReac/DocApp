@@ -7,7 +7,7 @@
     $nombres = [];
     $i=0;
     while($ver=mysqli_fetch_row($resultado)){
-        $nombres[$i] = $ver[1];
+        $nombres[$i] = $ver[1]. ' '.$ver[2];
         $i++;
     }
         

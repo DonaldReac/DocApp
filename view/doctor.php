@@ -29,15 +29,11 @@ require '../model/db.php'
     <div class="list-group container mb-3 " style="display: none;" id="pacientesFecha">
         
             <div class="col-4 mx-auto">
-                <p href="#" class="list-group-item list-group-item-action active" aria-current="true">
-                    The current link item
+                <p class="list-group-item list-group-item-action active text-center" aria-current="true" id="tituloLista">
+                    
                 </p>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                    <li class="list-group-item">A fourth item</li>
-                    <li class="list-group-item">And a fifth one</li>
+                <ul class="list-group list-group-flush text-center" id="lista">
+                    
                 </ul>
             </div>
         
@@ -80,7 +76,7 @@ require '../model/db.php'
         $resultado=mysqli_query($db,$query);
         while($ver=mysqli_fetch_row($resultado)){
     ?>
-    <div class="card mb-3 m-2">
+    <div class="card mb-3 m-3 shadow">
             <div class="col-md-4">
                
             </div>

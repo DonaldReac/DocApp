@@ -47,13 +47,32 @@ function leer(e){
         data: { fecha: busqueda ,iddoctor: doctor}, 
         cache: false,
         success: function(usuarios) {
+          
           result = eval(usuarios);
+          let titulo = document.querySelector('#tituloLista');
+          if(result==""){
+            
+            titulo.innerHTML= 'Lo siento no tienes pacientes para esta fecha o el paciente no existe';
+          }else{
+            titulo.innerHTML= 'Usuarios con cita';
+          }
+
+          let lista = document.querySelector("#lista");
+          while(lista.firstChild){
+                lista.removeChild(lista.firstChild);
+          }
+
           for (let index = 0; index < result.length; index++) {
-              console.log(result[index]);
+              let nombre = document.createElement('li');
+              nombre.textContent = result[index];
+              nombre.classList.add('list-group-item');
+              lista.appendChild(nombre);
           }
 
         }
       });
+
+
       
       if(document.querySelector("#buscar").value==""){
         document.getElementById("pacientesFecha").style.display='none';
@@ -61,7 +80,8 @@ function leer(e){
         document.getElementById("pacientesFecha").style.display='block';
       }
       
-
+      
+     
       
 }
 
