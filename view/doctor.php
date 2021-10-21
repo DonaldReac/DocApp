@@ -55,20 +55,17 @@ require '../model/db.php'
         </form>
     </div>
     <!-- aqui bajo va la tabla o info de los pacientes -->
-    <div class="galeria">
+    <div class="d-flex flex-wrap m-5">
     <?php 
         $query="SELECT * FROM paciente WHERE idDoctor=$usuario_actual";
         $resultado=mysqli_query($db,$query);
         while($ver=mysqli_fetch_row($resultado)){
     ?>
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
+    <div class="card mb-3 m-2">
             <div class="col-md-4">
-                <!--aqui va la imagen XD-->
-                <!--<img src="..." class="img-fluid rounded-start" alt="...">-->
+                <img src="../imagenes/paciente.png" class="img-fluid rounded-start" alt="Paciente">
             </div>
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
+            <div class="card-body">
                     <h5 class="card-title"><?php echo $ver[1] ?> <?php echo $ver[2] ?></h5>
                     <p class="card-text">Edad: <?php echo $ver[3] ?></p>
                     <!--<p class="card-text"><?php //echo $ver[4] ?></p>Fecha de cita-->
@@ -76,9 +73,8 @@ require '../model/db.php'
                     <button type="button" class="btn btn-danger">Eliminar</button>
                     <button type="button" class="btn btn-info">Detalles</button>
                     <button type="button" class="btn btn-secondary">Actualizar</button>
-                </div>
             </div>
-        </div>
+
     </div>
     <?php }?>
     </div>
