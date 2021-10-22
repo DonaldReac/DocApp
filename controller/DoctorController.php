@@ -13,6 +13,10 @@ switch($_GET['control']){
         break;
     case '4':
         actualizarUsuario();
+        break;
+    case '5':
+        ejecutaractualizar();
+        break;
     default:
         break;
 }
@@ -83,6 +87,24 @@ switch($_GET['control']){
          array_push($nombres,$rows['idDoctor']);
 
         echo json_encode($nombres);
+
+    }
+
+    function ejecutaractualizar() {
+        require '../model/PacienteModel.php';
+        require '../model/db.php';
+
+        $id = (int) $_REQUEST['idUsuario'];
+        $nombre = $_REQUEST['nombre'];
+        $apellidos = $_REQUEST['apellidos'];
+        $edad = (int)$_REQUEST['Edad'];
+        $cita = $_REQUEST['Fecha'];
+        $comentarios = $_REQUEST['comentarios'];
+        
+        $consulta = "UPDATE paciente SET nombre='{$nombre}', apellidos ='{$apellidos}',edad ={$edad}, historial = '{$comentarios}', cita='{$cita}' WHERE idPaciente={$id}";
+        $consulta =  mysqli_query($db,$consulta);
+        
+        echo $id;
 
     }
 

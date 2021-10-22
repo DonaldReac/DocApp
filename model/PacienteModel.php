@@ -15,4 +15,9 @@
     return $consulta;
     }
 
+    function actualizar($id,$nombre,$apellidos,$edad,$cita,$comentarios,$db){
+        
+        
+    }
+
 ?>

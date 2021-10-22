@@ -1,6 +1,5 @@
 <?php
 $usuario_actual =$_GET['id'];
-
 require '../model/db.php'
 ?>
 <!DOCTYPE html>
@@ -68,8 +67,9 @@ require '../model/db.php'
             </div>
             
             <button type="submit" class="btn btn-primary" id="agregarpaciente">Agregar</button>
-            <button type="submit" class="btn btn-success" id="actpaciente" style="display: none;">Actualizar paciente</button>
+            
         </form>
+        <button class="btn btn-success" id="actpaciente" style="display: none;">Actualizar paciente</button>
     </div>
     <!-- aqui bajo va la tabla o info de los pacientes -->
     <div class="d-flex flex-wrap m-5">

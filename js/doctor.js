@@ -90,8 +90,8 @@ function actualizarPaciente(e){
     data: { idUsuario: usuario}, 
     cache: false,
     success: function(usuario) {
-      result = eval(usuario);
       
+      result = eval(usuario);
       const idUsuario = result[0];
       const nombre = result[1];
       const apellidos = result[2];
@@ -99,8 +99,10 @@ function actualizarPaciente(e){
       const historial = result[4];
       const cita = result[6];
 
-      
-      
+      document.getElementById("form").style.display='block';
+      document.getElementById("actpaciente").style.display='block';
+      document.getElementById("agregarpaciente").style.display='none';
+
       const inputUsuario = document.querySelector("#actualizarUsuario");
       const inputNombre = document.querySelector("#nombre");
       const inputApellidos = document.querySelector("#apellidos");
@@ -108,8 +110,41 @@ function actualizarPaciente(e){
       const inputFecha = document.querySelector("#fecha");
       const inputComentarios = document.querySelector("#comentarios");
 
-      console.log(idUsuario,nombre,apellidos,edad,historial,cita,inputUsuario,inputNombre,inputApellidos,inputEdad,inputFecha,inputComentarios);
+      //console.log(idUsuario,nombre,apellidos,edad,historial,cita,inputUsuario,inputNombre,inputApellidos,inputEdad,inputFecha,inputComentarios);
+      
+      inputUsuario.value=idUsuario;
+      inputNombre.value=nombre;
+      inputApellidos.value=apellidos;
+      inputEdad.value=edad;
+      inputFecha.value=cita;
+      inputComentarios.value=historial;
+
     }});
 }
+
+  let querypaciente = document.querySelector("#actpaciente");
+  querypaciente.addEventListener("click",query);
+
+   function query (e){
+      
+       const inputUsuario = parseInt(document.querySelector("#actualizarUsuario").value);
+       const inputNombre = document.querySelector("#nombre").value;
+       const inputApellidos = document.querySelector("#apellidos").value;
+       const inputEdad = parseInt(document.querySelector("#edad").value);
+       const inputFecha = document.querySelector("#fecha").value;
+       const inputComentarios = document.querySelector("#comentarios").value;
+  
+       $.ajax({
+         url: "../controller/DoctorController.php?control=5",
+         global: false, type: "POST", 
+         data: { idUsuario: inputUsuario ,nombre: inputNombre,apellidos: inputApellidos, Edad:inputEdad,Fecha:inputFecha,comentarios:inputComentarios}, 
+         cache: false,
+         success: function(e) {
+           console.log(e);
+           location.reload();
+         }
+       });
+      
+ }
 
 
