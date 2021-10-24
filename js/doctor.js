@@ -147,4 +147,22 @@ function actualizarPaciente(e){
       
  }
 
-
+ function eliminaP (e){
+  e.preventDefault;
+  const usuario = parseInt(e.id);
+  var confirmación
+  console.log(usuario);
+  confirmación=confirm("Seguro que desea eliminar al paciente?")
+  if (confirmación){
+    $.ajax({
+      url: "../controller/DoctorController.php?control=6",
+      global: false, type: "POST", 
+      data: { idUsuario: usuario}, 
+      cache: false,
+        success: function(e) {
+          //location.reload();
+          $("#registro" + usuario).hide();
+        }
+      });
+  }   
+}

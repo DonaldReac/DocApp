@@ -17,6 +17,8 @@ switch($_GET['control']){
     case '5':
         ejecutaractualizar();
         break;
+    case '6':
+        eliminarPaciente();
     default:
         break;
 }
@@ -108,4 +110,14 @@ switch($_GET['control']){
 
     }
 
+    function eliminarPaciente() {
+        require '../model/PacienteModel.php';
+        require '../model/db.php';
+        print_r("entro al php");
+        $id = $_REQUEST['idUsuario'];        
+        $delete = "DELETE FROM paciente WHERE idPaciente={$id}";
+        $delete =  mysqli_query($db,$delete);
+        print_r("paso la consulta");
+        echo $id;
+    }
 ?>
