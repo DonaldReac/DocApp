@@ -11,6 +11,14 @@ switch($_GET['control']){
     case '3':
         registroPaciente();
         break;
+    case '4':
+        actualizarUsuario();
+        break;
+    case '5':
+        ejecutaractualizar();
+        break;
+    case '6':
+        eliminarPaciente();
     default:
         break;
 }
@@ -56,6 +64,17 @@ switch($_GET['control']){
         registrar($_POST['nombre'],$_POST['apellidos'],$_POST['edad'],$_POST['fecha'],$_POST['comentarios'],$_GET['idDoctor'],$db);
         header("Location:../view/doctor.php?id={$_GET['idDoctor']}");
         
+    }
+
+    function eliminarPaciente() {
+        require '../model/PacienteModel.php';
+        require '../model/db.php';
+        print_r("entro al php");
+        $id = $_REQUEST['idUsuario'];        
+        $delete = "DELETE FROM paciente WHERE idPaciente={$id}";
+        $delete =  mysqli_query($db,$delete);
+        print_r("paso la consulta");
+        echo $id;
     }
 
 ?>

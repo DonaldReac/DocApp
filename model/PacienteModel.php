@@ -6,4 +6,7 @@
     }
 
 
+    function eliminar($id){
+        
+    }
 ?>

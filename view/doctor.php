@@ -62,6 +62,7 @@ require '../model/db.php'
         while($ver=mysqli_fetch_row($resultado)){
     ?>
     <div class="card mb-3 m-2">
+    <div class="card mb-3 m-3 shadow" id="registro<?php echo$ver[0]?>">
             <div class="col-md-4">
                 <img src="../imagenes/paciente.png" class="img-fluid rounded-start" alt="Paciente">
             </div>
@@ -73,6 +74,11 @@ require '../model/db.php'
                     <button type="button" class="btn btn-danger">Eliminar</button>
                     <button type="button" class="btn btn-info">Detalles</button>
                     <button type="button" class="btn btn-secondary">Actualizar</button>
+                    <p class="card-text">Comentarios: <?php echo $ver[4] ?></p>
+                    <div class="d-flex justify-content-around">
+                        <button type="button" class="btn btn-danger" onclick="eliminaP(this)" value="<?php echo $ver[0]?>" id="<?php echo $ver[0]?>">Eliminar</button>
+                        <button type="button" class="btn btn-secondary" onclick="actualizarPaciente(this)" value="<?php echo $ver[0]?>" id="<?php echo $ver[0]?>">Actualizar</button>
+                    </div>
             </div>
 
     </div>
