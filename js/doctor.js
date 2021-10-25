@@ -133,36 +133,75 @@ function actualizarPaciente(e){
        const inputEdad = parseInt(document.querySelector("#edad").value);
        const inputFecha = document.querySelector("#fecha").value;
        const inputComentarios = document.querySelector("#comentarios").value;
+
+       Swal.fire({
+        title: '¿Estas seguro?',
+        text: "cambiaras los valores del paciente ",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText:'cancelar',
+        confirmButtonText: 'Si, Actualizar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $.ajax({
+            url: "../controller/DoctorController.php?control=5",
+            global: false, type: "POST", 
+            data: { idUsuario: inputUsuario ,nombre: inputNombre,apellidos: inputApellidos, Edad:inputEdad,Fecha:inputFecha,comentarios:inputComentarios}, 
+            cache: false,
+            success: function(e) {
+              Swal.fire(
+            'Actualizado',
+            'El usuario seleccionado fue actualizado',
+            'success'
+              )
+          location.reload();
+            }
+          });
+          
+        }
+        
+      })
   
-       $.ajax({
-         url: "../controller/DoctorController.php?control=5",
-         global: false, type: "POST", 
-         data: { idUsuario: inputUsuario ,nombre: inputNombre,apellidos: inputApellidos, Edad:inputEdad,Fecha:inputFecha,comentarios:inputComentarios}, 
-         cache: false,
-         success: function(e) {
-           console.log(e);
-           location.reload();
-         }
-       });
+       
       
  }
 
  function eliminaP (e){
   e.preventDefault;
   const usuario = parseInt(e.id);
-  var confirmación
-  console.log(usuario);
-  confirmación=confirm("Seguro que desea eliminar al paciente?")
-  if (confirmación){
-    $.ajax({
-      url: "../controller/DoctorController.php?control=6",
-      global: false, type: "POST", 
-      data: { idUsuario: usuario}, 
-      cache: false,
-        success: function(e) {
-          //location.reload();
-          $("#registro" + usuario).hide();
-        }
-      });
-  }   
+  
+  Swal.fire({
+    title: '¿Estas seguro de eliminar a este paciente?',
+    text: "no podrás revertir los cambios",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    cancelButtonText: 'Cancelar',
+    confirmButtonText: 'Si, Eliminar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      $.ajax({
+        url: "../controller/DoctorController.php?control=6",
+        global: false, type: "POST", 
+        data: { idUsuario: usuario}, 
+        cache: false,
+          success: function(e) {
+            //location.reload();
+            $("#registro" + usuario).hide();
+          }
+        });
+      Swal.fire(
+        'Eliminado!',
+        'El paciente seleccionado fue eliminado.',
+        'success'
+      )
+    }
+  })
+
+
+    
+     
 }
