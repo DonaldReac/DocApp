@@ -17,7 +17,7 @@
         </div>
         <div class="col p-5  rounded-end">
           <div class="text-end">
-            <img src="../imagenes/LOGO-SALUD-MORADO.png " class="imgshadow" width="50" alt="aqui va el logo">
+            <img src="../imagenes/logo2.png " class="imgshadow" width="150" alt="aqui va el logo">
           </div>
           <h2 class="fw-bold text-center py-5">Bienvenido(a) Inicia Sesión</h2>
           <!-- login -->
@@ -38,7 +38,7 @@
               {$_GET['error']}
             </div>" ?>
             <div class="d-grid">
-              <button type="submit" id="inicio" class="btn btn-primary" >Iniciar sesión</button>
+              <button type="submit" id="inicio" class="btn btn-primary">Iniciar sesión <img src="../imagenes/inicio.png " class="imgshadow" width="25" alt="aqui va el logo"></button>
             </div>
             <div class="my-3">
               <span>¿No tienes una cuenta?<a href="Registro.php">Regístrate</a></span>

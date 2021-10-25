@@ -68,7 +68,7 @@ require '../model/db.php'
               Error , Los Campos No Pueden Ir Vacíos 
             </div>
             
-            <button type="submit" class="btn btn-primary" id="agregarpaciente">Agregar</button>
+            <button type="submit" class="btn btn-primary" id="agregarpaciente">Agregar </button>
             
         </form>
         <button class="btn btn-success" id="actpaciente" style="display: none;">Actualizar paciente</button>
@@ -92,7 +92,7 @@ require '../model/db.php'
                     <p class="card-text">Comentarios: <?php echo $ver[4] ?></p>
                     <div class="d-flex justify-content-around">
                     <button type="button" class="btn btn-danger" onclick="eliminaP(this)" value="<?php echo $ver[0]?>" id="<?php echo $ver[0]?>">Eliminar</button>
-                        <button type="button" class="btn btn-secondary" onclick="actualizarPaciente(this)" value="<?php echo $ver[0]?>" id="<?php echo $ver[0]?>">Actualizar</button>
+                        <button type="button" class="btn btn-primary" onclick="actualizarPaciente(this)" value="<?php echo $ver[0]?>" id="<?php echo $ver[0]?>">Detalles </button>
                     </div>
             </div>
 
