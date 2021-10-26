@@ -18,7 +18,7 @@ require '../model/db.php'
 <body class="body2">
     <nav class="navbar navbar-light bg-light mb-5  bg-opacity-75 shadow">
         <div class="m-3 col d-flex justify-content-around">
-            <button id="agregar" class=" btn btn-success">Agregar Paciente</button>
+            <button id="agregar" class=" btn btn-success">Agregar Paciente <img src="../imagenes/add.png " class="imgshadow" width="20" alt="aqui va el logo"></button>
             <form action="#">
                 <input type="hidden" id="iddoctor" value='<?php echo $usuario_actual?>'>
                 <input name="buscar" id="buscar" class="form-control text-center" type="search" placeholder="Buscar usuario" aria-label="Search">
@@ -74,16 +74,13 @@ require '../model/db.php'
         <button class="btn btn-success" id="actpaciente" style="display: none;">Actualizar paciente</button>
     </div>
     <!-- aqui bajo va la tabla o info de los pacientes -->
-    <div class="d-flex flex-wrap m-5">
+    <div class="  d-flex flex-wrap m-5 ">
     <?php 
         $query="SELECT * FROM paciente WHERE idDoctor=$usuario_actual";
         $resultado=mysqli_query($db,$query);
         while($ver=mysqli_fetch_row($resultado)){
     ?>
-    <div class="card mb-3 m-3 shadow" id="registro<?php echo$ver[0]?>">
-            <div class="col-md-4">
-               
-            </div>
+    <div class="card mx-5 my-3  shadow col-md-3" id="registro<?php echo$ver[0]?>">
             <div class="card-body">
                     <input type="hidden" value="<?php echo $ver[0]?>">
                     <h5 class="card-title"><?php echo $ver[1] ?> <?php echo $ver[2] ?></h5>
@@ -91,15 +88,15 @@ require '../model/db.php'
                     <p class="card-text">Edad: <?php echo $ver[3] ?></p>
                     <p class="card-text">Comentarios: <?php echo $ver[4] ?></p>
                     <div class="d-flex justify-content-around">
-                    <button type="button" class="btn btn-danger" onclick="eliminaP(this)" value="<?php echo $ver[0]?>" id="<?php echo $ver[0]?>">Eliminar</button>
-                        <button type="button" class="btn btn-primary" onclick="actualizarPaciente(this)" value="<?php echo $ver[0]?>" id="<?php echo $ver[0]?>">Detalles </button>
+                    <button type="button" class="btn btn-danger" onclick="eliminaP(this)" value="<?php echo $ver[0]?>" id="<?php echo $ver[0]?>">Eliminar <img src="../imagenes/remove.png " class="imgshadow" width="20" alt="aqui va el logo"></button>
+                        <button type="button" class="btn btn-primary" onclick="actualizarPaciente(this)" value="<?php echo $ver[0]?>" id="<?php echo $ver[0]?>">Detalles  <img src="../imagenes/1176.png " class="imgshadow" width="20" alt="aqui va el logo"></button>
                     </div>
             </div>
 
     </div>
     <?php }?>
     </div>
-    </div>
+    
 
 </body>
 <!-- JavaScript Bundle with Popper -->
